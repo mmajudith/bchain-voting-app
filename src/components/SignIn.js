@@ -17,8 +17,8 @@ const SignIn = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(logIn('judith'));
-		toast.success('Successfully sign in.');
 		navigate('/');
+		toast.success('Successfully sign in.');
 	};
 
 	return (

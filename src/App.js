@@ -1,10 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
 import User from './pages/User';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import LoginSuccess from './pages/LoginSuccess';
 import Home from './pages/Home';
+import Polls from './pages/Polls';
+import AspirantProfile from './pages/AspirantProfile';
 
 const App = () => {
 	const { currentUser } = useSelector((state) => state.authSlice);
@@ -14,7 +18,7 @@ const App = () => {
 	};
 
 	return (
-		<div className="w-full h-full m-auto">
+		<div className="w-full h-full m-auto text-black font-normal text-base">
 			<ToastContainer
 				position="top-center"
 				autoClose={5000}
@@ -36,7 +40,29 @@ const App = () => {
 						index
 						element={
 							<RequireAuth>
-								<Home />
+								<LoginSuccess>
+									<Home />
+								</LoginSuccess>
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="polls"
+						element={
+							<RequireAuth>
+								<LoginSuccess>
+									<Polls />
+								</LoginSuccess>
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="aspirant"
+						element={
+							<RequireAuth>
+								<LoginSuccess>
+									<AspirantProfile />
+								</LoginSuccess>
 							</RequireAuth>
 						}
 					/>

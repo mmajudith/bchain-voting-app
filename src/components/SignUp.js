@@ -19,8 +19,8 @@ const SignUp = () => {
 		e.preventDefault();
 
 		dispatch(logIn('judith'));
-		toast.success('Successfully sign up.');
 		navigate('/');
+		toast.success('Successfully sign up.');
 	};
 
 	return (

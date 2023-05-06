@@ -1,17 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const logIn = createAsyncThunk('login', async (username, thunkAPI) => {
-	if (username) {
-		sessionStorage.setItem('user', username);
+export const logIn = createAsyncThunk('logIn', async (username, thunkAPI) => {
+	const currentUser = username;
+	if (currentUser) {
+		sessionStorage.setItem('user', currentUser);
 	}
 
-	return username;
+	return currentUser;
 });
 
-export const logOut = createAsyncThunk('logout', async () => {
-	const username = sessionStorage.getItem('user');
+export const logOut = createAsyncThunk('logOut', async () => {
+	const currentUser = sessionStorage.getItem('user');
 
-	if (username) {
+	if (currentUser) {
 		sessionStorage.removeItem('user');
 	}
 

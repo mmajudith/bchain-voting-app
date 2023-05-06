@@ -4,9 +4,25 @@
 
 @layer base {
     body{
-        @apply w-full bg-white
+        @apply w-full bg-light-gray
     }
 }
 
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    @apply inline-block w-full h-full pl-3 text-green border-l-8 border-solid border-l-green
+}
+
+.active div{
+    @apply pl-5 rounded-l-full bg-light-gray
+}
+
+.active .link-icon path{
+    @apply fill-green 
+}
+
+.active .link-icon-stroke path{
+    @apply stroke-green
+}
