@@ -3,12 +3,17 @@ import { logIn, logOut } from '../actionsCreator/userActions';
 
 const initialState = {
 	currentUser: sessionStorage.getItem('user') || null,
+	isLogout: false,
 };
 
 export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
-	reducers: {},
+	reducers: {
+		toggleLogout: (state) => {
+			state.isLogout = !state.isLogout;
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(logIn.fulfilled, (state, { payload }) => {
 			state.currentUser = payload;
@@ -18,5 +23,7 @@ export const authSlice = createSlice({
 		});
 	},
 });
+
+export const { toggleLogout } = authSlice.actions;
 
 export default authSlice.reducer;

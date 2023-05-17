@@ -14,9 +14,9 @@ const SignIn = () => {
 	const [userName, setUserName] = useState('');
 	const [passWord, setPassWord] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		dispatch(logIn('judith'));
+		await dispatch(logIn('judith'));
 		navigate('/');
 		toast.success('Successfully sign in.');
 	};
@@ -35,6 +35,7 @@ const SignIn = () => {
 					placeholder={'Enter Your Username'}
 					value={userName}
 					onChangeHandler={(e) => setUserName(e.target.value)}
+					forLabel={'name'}
 				/>
 				<div className="w-full h-auto mx-auto flex flex-col justify-center gap-2">
 					<PassWord

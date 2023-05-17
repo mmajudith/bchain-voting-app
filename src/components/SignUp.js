@@ -15,10 +15,10 @@ const SignUp = () => {
 	const [cardNumber, setCardNumber] = useState('');
 	const [passWord, setPassWord] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		dispatch(logIn('judith'));
+		await dispatch(logIn('judith'));
 		navigate('/');
 		toast.success('Successfully sign up.');
 	};
@@ -40,12 +40,14 @@ const SignUp = () => {
 					placeholder={'Enter Your Username'}
 					value={userName}
 					onChangeHandler={(e) => setUserName(e.target.value)}
+					forLabel={'name'}
 				/>
 				<InputText
 					type={'number'}
 					placeholder={'Enter Your VIN'}
 					value={cardNumber}
 					onChangeHandler={(e) => setCardNumber(e.target.value)}
+					forLabel={'cardNumber'}
 				/>
 				<PassWord
 					value={passWord}

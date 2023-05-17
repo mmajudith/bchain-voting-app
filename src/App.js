@@ -19,17 +19,6 @@ const App = () => {
 
 	return (
 		<div className="w-full h-full m-auto text-black font-normal text-base">
-			<ToastContainer
-				position="top-center"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
 			<Routes>
 				<Route path="/">
 					<Route path="user" element={<User />}>
@@ -68,6 +57,17 @@ const App = () => {
 					/>
 				</Route>
 			</Routes>
+			<ToastContainer
+				position="top-center"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</div>
 	);
 };

@@ -10,18 +10,29 @@ const PassWord = ({ value, onChangeHandler }) => {
 	};
 
 	return (
-		<div
-			className="w-full h-[50px] text-gray outline-none border-gray border-solid border rounded
-						flex flex-row justify-between items-center px-3"
-		>
+		<div className="w-full h-[50px] relative">
 			<input
-				className="w-[90%] h-full border-none outline-none text-gray"
+				className="w-full h-full pl-3 text-black outline-none border-gray border-solid border rounded
+								peer focus:border-green"
 				type={`${!isVisible ? 'password' : 'text'}`}
-				placeholder="Password"
 				value={value}
 				onChange={onChangeHandler}
+				id="password"
+				required
 			/>
-			<p className="w-fit h-fit cursor-pointer" onClick={handleShowHidePass}>
+			<label
+				htmlFor="password"
+				className="bg-white absolute left-3 top-3 cursor-text text-gray z-10 peer-focus:top-[-8.4px]
+					peer-focus:text-xs peer-focus:text-green peer-focus:px-1 transition-all ease-linear
+					peer-valid:top-[-8.4px] peer-valid:text-xs peer-valid:text-black peer-valid:px-1"
+			>
+				Password
+			</label>
+
+			<p
+				className="absolute right-3 top-4 cursor-pointer"
+				onClick={handleShowHidePass}
+			>
 				{!isVisible ? <EyeInVisible /> : <EyeVisible />}
 			</p>
 		</div>
